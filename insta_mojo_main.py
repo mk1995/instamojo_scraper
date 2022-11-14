@@ -62,27 +62,23 @@ if __name__ == "__main__":
     # initiating and returning Chrome web driver
     main_browser = webdriver.Chrome(service=service, options=options)
 
-    for index, urll in enumerate(url_list[146:], start=1):
+        for index, urll in enumerate(url_list, start=1):
         result = {}
         print()
         print(f'{str(index)} Scraping for: {urll.strip()}')
 
         main_browser.get(urll.strip())
         main_browser.implicitly_wait(60)
+        sleep(0.8)
         p_title = main_browser.title
 
         if 'https://www.instamojo.com/@' in urll.strip():
-
             if p_title == "404: Page Not Found — Instamojo":
                 print(f'{urll.strip()}: {p_title}')
                 continue
             else:
                 insta_mojo_profile(main_browser, db_conn)
         else:
-            if p_title == "Instamojo":
-                print(f'{urll.strip()}: {p_title}')
-                continue
-                    else:
             if p_title == "Instamojo":
                 print(f'{urll.strip()}: {p_title}')
                 continue
