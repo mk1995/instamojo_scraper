@@ -61,8 +61,8 @@ if __name__ == "__main__":
 
     # initiating and returning Chrome web driver
     main_browser = webdriver.Chrome(service=service, options=options)
-
-        for index, urll in enumerate(url_list, start=1):
+    
+    for index, urll in enumerate(url_list, start=1):
         result = {}
         print()
         print(f'{str(index)} Scraping for: {urll.strip()}')
@@ -117,5 +117,5 @@ if __name__ == "__main__":
                         print(f"Data already exists into db.")
                 except Exception as e:
                     print('Exception', e.with_traceback(traceback.print_exc()))
-        sleep(0.7)
+        sleep(0.5)
     main_browser.quit()
