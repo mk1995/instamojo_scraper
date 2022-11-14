@@ -62,7 +62,7 @@ if __name__ == "__main__":
     # initiating and returning Chrome web driver
     main_browser = webdriver.Chrome(service=service, options=options)
 
-    for index, urll in enumerate(url_list, start=1):
+    for index, urll in enumerate(url_list[146:], start=1):
         result = {}
         print()
         print(f'{str(index)} Scraping for: {urll.strip()}')
