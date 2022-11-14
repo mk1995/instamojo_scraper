@@ -1,0 +1,1 @@
+worker: python insta_mojo_main.py
