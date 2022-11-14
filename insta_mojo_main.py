@@ -30,7 +30,7 @@ def insta_mojo_profile(browser: webdriver, db_connection):
         db_conn['instamojo_profile'].insert_one(j_data)
         print(f'Successfully added. {j_data}')
     else:
-        print(f"Data already exists into db. {j_data}")
+        print(f"Data already exists into db.")
     return j_data
 
 
@@ -82,6 +82,13 @@ if __name__ == "__main__":
             if p_title == "Instamojo":
                 print(f'{urll.strip()}: {p_title}')
                 continue
+                    else:
+            if p_title == "Instamojo":
+                print(f'{urll.strip()}: {p_title}')
+                continue
+            elif p_title == "404: Page Not Found — Instamojo":
+                print(f'{urll.strip()}: {p_title}')
+                continue
             else:
                 try:
                     return_list = get_json_data(main_browser)
@@ -111,7 +118,7 @@ if __name__ == "__main__":
                         insert_row = db_conn[collection_common].insert_one(result)
                         print(f"Data saved successfully. {insert_row.inserted_id} {result}")
                     else:
-                        print(f"Data already exists into db. {result}")
+                        print(f"Data already exists into db.")
                 except Exception as e:
                     print('Exception', e.with_traceback(traceback.print_exc()))
         sleep(0.7)
