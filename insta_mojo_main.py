@@ -77,7 +77,12 @@ if __name__ == "__main__":
                 print(f'{urll.strip()}: {p_title}')
                 continue
             else:
-                insta_mojo_profile(main_browser, db_conn)
+                try:
+                    insta_mojo_profile(main_browser, db_conn)
+                except:
+                    print(f'{urll.strip()}: {p_title}')
+                    continue
+                    
         else:
             if p_title == "Instamojo":
                 print(f'{urll.strip()}: {p_title}')
