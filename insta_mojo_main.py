@@ -49,7 +49,7 @@ def my_instamojo_ngif(browser: webdriver):
 def get_myinstamojo_latest(browser: webdriver):
     try:
         returned_dict = {}
-        script_text = browser.find_element(By.XPATH, '//head/script[last()]').get_attribute('innerHTML').lstrip(' ')
+        script_text = browser.find_element(By.XPATH, '//head/script[@type="text/javascript"][last()]').get_attribute('innerHTML').lstrip(' ')
         script_split = [x.strip() for x in script_text.splitlines()]
         for x in script_split:
             if 'var username = ' in x:
